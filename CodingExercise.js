@@ -178,18 +178,166 @@ const additionalCurrencies = ["UAH", "RUB", "CNY"];
 const commonArr = [...baseCurrencies, ...additionalCurrencies];
 function availableCurr(arr, missingCurr) {
   let str = "Доступная валюта: \n";
-  if(arr.length === 0){
-    return  'Нет доступных валют'
+  if (arr.length === 0) {
+    return "Нет доступных валют";
   }
   arr.forEach((curr) => {
     if (curr !== missingCurr) {
-      str += `${curr} \n` ;
+      str += `${curr} \n`;
     }
   });
   return str;
 }
 
 // console.log(availableCurr(['UAH', 'RUB', 'CNY'], 'CNY'));
+
+const shoppingMallData = {
+  shops: [
+    {
+      width: 10,
+      length: 5,
+    },
+    {
+      width: 15,
+      length: 7,
+    },
+    {
+      width: 20,
+      length: 5,
+    },
+    {
+      width: 8,
+      length: 10,
+    },
+  ],
+  height: 5,
+  moneyPer1m3: 30, //за один куб метр
+  budget: 50000, // общий бюджет
+};
+
+function isBudgetEnough(data) {
+  let Sshops = 0;
+  data.shops.forEach((shop) => {
+    Sshops += shop.width * shop.length;
+  });
+  let volume = Sshops * data.height;
+
+  return data.moneyPer1m3 * volume > data.budget
+    ? "Бюджета не достаточно, сидите в холоде"
+    : "Бюджета достаточно, грейтесь";
+}
+
+// console.log(isBudgetEnough(shoppingMallData));
+
+const students = [
+  "Peter",
+  "Andrew",
+  "Ann",
+  "Mark",
+  "Josh",
+  "Sandra",
+  "Cris",
+  "Bernard",
+  "Takesi",
+  "Sam",
+  "Egor",
+  "Yuna",
+];
+
+function sortStudentsByGroups(arr) {
+  arr = arr.sort();
+  debugger;
+  let newArr = [];
+  let smallArr = [];
+  let leftStudents = "Оставшиеся студенты: ";
+  arr.forEach((student) => {
+    debugger;
+    smallArr.push(student);
+    if (smallArr.length === 3 && newArr.length < 3) {
+      newArr.push(smallArr);
+      debugger;
+      smallArr = [];
+    } else if (newArr.length >= 3) {
+      leftStudents += `${student} `;
+      debugger;
+    }
+  });
+  newArr.push(leftStudents);
+  return newArr;
+  debugger;
+}
+// console.log(sortStudentsByGroups(students));debugger
+
+function isOpen(prop) {
+  let answer = "";
+  prop ? (answer = "Закрыто") : (answer = "Открыто");
+
+  return answer;
+}
+
+// console.log(isOpen(restorantData.openNow));
+
+function isAverageLunchPriceTrue(fDish, sDish, average) {
+  if (
+    +fDish.price.slice(0, -1) + +sDish.price.slice(0, -1) <
+    +average.slice(0, -1)
+  ) {
+    return "Цена ниже средней";
+  } else {
+    return "Цена выше средней";
+  }
+}
+
+// console.log(
+//   isAverageLunchPriceTrue(
+//     restorantData.menu[1],
+//     restorantData.menu[2],
+//     restorantData.averageLunchPrice
+//   )
+// );
+
+const restorantData = {
+  menu: [
+    {
+      name: "Salad Caesar",
+      price: "14$",
+    },
+    {
+      name: "Pizza Diavola",
+      price: "9$",
+    },
+    {
+      name: "Beefsteak",
+      price: "17$",
+    },
+    {
+      name: "Napoleon",
+      price: "7$",
+    },
+  ],
+  waitors: [
+    { name: "Alice", age: 22 },
+    { name: "John", age: 24 },
+  ],
+  averageLunchPrice: "20$",
+  openNow: true,
+};
+
+function transferWaitors(data) {
+  debugger;
+
+  const copy = Object.assign({}, data);
+
+  debugger;
+
+  copy.waitors = { name: "Mike", age: 32 };
+  debugger;
+  return copy;
+}
+console.log(transferWaitors(restorantData));
+debugger;
+
+console.log(restorantData);
 
 function factorial(x){//возведение числа в факториал с использованием рекурсии
 
@@ -200,5 +348,7 @@ function factorial(x){//возведение числа в факториал с
   }
 }
 
+
 // console.log(factorial(6))
+
 
