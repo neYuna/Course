@@ -189,4 +189,16 @@ function availableCurr(arr, missingCurr) {
   return str;
 }
 
-console.log(availableCurr(['UAH', 'RUB', 'CNY'], 'CNY'));
+// console.log(availableCurr(['UAH', 'RUB', 'CNY'], 'CNY'));
+
+function factorial(x){//возведение числа в факториал с использованием рекурсии
+
+  if(x === 1){
+    return x;
+  } else {
+    return x * factorial(x - 1);
+  }
+}
+
+// console.log(factorial(6))
+
