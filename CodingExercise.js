@@ -338,3 +338,12 @@ console.log(transferWaitors(restorantData));
 debugger;
 
 console.log(restorantData);
+
+function factorial(x){//возведение числа в факториал с использованием рекурсии
+
+  if(x === 1){
+    return x;
+  } else {
+    return x * factorial(x - 1);
+  }
+}
