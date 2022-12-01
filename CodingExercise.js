@@ -347,3 +347,8 @@ function factorial(x){//возведение числа в факториал с
     return x * factorial(x - 1);
   }
 }
+
+
+// console.log(factorial(6))
+
+
