@@ -334,16 +334,87 @@ function transferWaitors(data) {
   debugger;
   return copy;
 }
-console.log(transferWaitors(restorantData));
-debugger;
+// console.log(transferWaitors(restorantData));
+// debugger;
 
-console.log(restorantData);
+// console.log(restorantData);
 
-function factorial(x){//возведение числа в факториал с использованием рекурсии
+function factorial(x) {
+  //возведение числа в факториал с использованием рекурсии
 
-  if(x === 1){
+  if (x === 1) {
     return x;
   } else {
     return x * factorial(x - 1);
   }
 }
+
+function amountOfPages(summary) {
+  let str = "";
+  for (let i = 1; i <= summary; i++) {
+    if (str.length >= summary) {
+      return i - 1;
+    } else {
+      str += i;
+    }
+  }
+}
+// console.log(amountOfPages(1095))
+
+function isPangram(string) {
+  let letterArr = [
+    "A",
+    "E",
+    "I",
+    "O",
+    "U",
+    "Y",
+    "B",
+    "C",
+    "D",
+    "F",
+    "G",
+    "H",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "V",
+    "W",
+    "X",
+    "Z",
+  ];
+  string = string.toUpperCase().split(" ").join("");
+  for (let i = 0; i < letterArr.length; i++) {
+    if (string.includes(letterArr[i])) {
+      console.log(letterArr[i]);
+    } else {
+      return false;
+    }
+  }
+  return true;
+}
+
+// console.log(isPangram("The quick brown fox jumps over the lazy dog"));
+
+function deepCount(arr) {
+  let res = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      res = res + deepCount(arr[i]) + 1;
+    } else {
+      res += 1;
+    }
+  }
+  return res;
+}
+
+// console.log(deepCount([1, 2, [3, 4]]));
+
+console.log([1, 2, [3, 4]].entries());
