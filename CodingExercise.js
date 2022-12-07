@@ -335,9 +335,6 @@ function transferWaitors(data) {
   return copy;
 }
 // console.log(transferWaitors(restorantData));
-// debugger;
-
-// console.log(restorantData);
 
 function factorial(x) {
   //возведение числа в факториал с использованием рекурсии
@@ -348,6 +345,7 @@ function factorial(x) {
     return x * factorial(x - 1);
   }
 }
+
 
 function amountOfPages(summary) {
   let str = "";
@@ -417,4 +415,3 @@ function deepCount(arr) {
 
 // console.log(deepCount([1, 2, [3, 4]]));
 
-console.log([1, 2, [3, 4]].entries());
